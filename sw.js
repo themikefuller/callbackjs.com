@@ -1,6 +1,6 @@
 'use strict';
 
-////////////// v0.0.0+
+//////////////// v0.0.0+
 
 const cacheName = 'resources';
 const resources = [
