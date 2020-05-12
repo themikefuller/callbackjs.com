@@ -4,6 +4,7 @@
   "start_url": "/",
   "display": "standalone",
   "background_color": "#000",
+  "theme_color": "#000",
   "description": "Callbackjs.com",
   "icons": [{
     "src": "/icon-96.png",
