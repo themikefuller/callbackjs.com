@@ -1,0 +1,214 @@
+/* Basic Element Styles */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  -webkit-tap-highlight-color: transparent;
+  word-break: break-word;
+  outline: none;
+}
+
+html {
+  font-size: 1.25rem;
+}
+
+body {
+  background: #fff;
+  color: #000;
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 100vh;
+  width: 100vw;
+}
+
+div {
+  width: 100%;
+  margin: 0 auto;
+}
+
+hr {
+  width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  width: calc(100% - 1.5rem);
+  margin: 0.25rem auto;
+  padding: 0.25rem;
+}
+
+ul li {
+  list-style-type: none;
+}
+
+a {
+  color: #f00;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+input, select, button, a.button, textarea, pre {
+  width: calc(100% - 0.5rem);
+  background: #fff;
+  color: #000;
+  padding: 0.5rem;
+  margin: 0.25rem;
+  border: 0;
+  box-shadow: 0px 0px 2px 0px #000;
+  font-size: 1.1rem;
+  text-align: left;
+  border-radius: 1rem;
+}
+
+textarea, pre {
+  min-height: calc(40vh - 1rem);
+  padding: 1rem;
+  font-size: 1.2rem;
+}
+
+button, a.button {
+  background: linear-gradient(to bottom, #3F51B5,#2196F3,#3F51B5);
+  color: #fff;
+  text-align: center;
+  text-shadow: 1px 1px 1px #000;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 700;
+}
+
+a.button {
+  text-align: left;
+}
+
+button:hover, a.button:hover {
+  background: linear-gradient(to bottom, #F44336,#E91E63,#F44336);
+}
+
+@media screen and (min-width: 568px) {
+  input, select, button {
+    width: calc(66% - 1rem);
+  }
+  button, a.button {
+    width: calc(33% - 1rem);
+    max-width: calc(960px / 3 - 1rem);
+    font-size: 0.8rem;
+  }
+}
+
+/*
+
+  App and App Components
+
+*/
+
+#app {
+  width: 100vw;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2.5rem;
+  min-height: calc(100vh - 2.5rem);
+  background-color: #fff;
+  color: #000;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#app .hidden {
+  display: none;
+}
+
+#app div {
+  animation: zoomIn 0.5s ease-in-out;
+}
+
+#app .component {
+  max-width: 960px;
+}
+
+/* Navigation */
+
+.navMenu {
+  overflow: hidden;
+  background: linear-gradient(to right, #03a9f4, #3f51b5);
+  background: rgba(0,0,0,1);
+  width: 100%;
+  position: fixed;
+  z-index: 99;
+  justify-content: flex-start;
+}
+
+.navMenu a {
+  float: left;
+  display: block;
+  color: #fff;
+  text-align: center;
+  padding: 0.75rem;
+  text-decoration: none;
+  text-shadow: 1px 1px 1px #000;
+  line-height: 1rem;
+  font-size: 1rem;
+}
+
+.navMenu a:hover {
+  background: linear-gradient(to bottom, #F44336,#E91E63,#F44336);
+  color: #fff;
+  text-shadow: 1px 1px 1px #000;
+}
+
+.navMenu a.active {
+  background-color: #4CAF50;
+  color: #fff;
+}
+
+.navMenu .icon {
+  display: none;
+  font-size: 1.5rem;
+  line-height: 1rem;
+}
+
+@media screen and (max-width: 567px) {
+  .navMenu a {
+    font-size: 1.2rem;
+  }
+
+  /* This shows first two items...
+  .navMenu a:nth-child(1n+3) {display: none;}
+  */
+
+  .navMenu a:not(:first-child) {display: none;}
+  .navMenu a.icon {
+    float: right;
+    display: block;
+  }
+
+  .navMenu.responsive {
+    position: fixed;
+    width:100%;
+    height:auto;
+    padding-bottom: 1rem;
+    max-height: 100vh;
+    overflow-y: scroll;}
+  .navMenu.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .navMenu.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
+
+/* Animations */
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
