@@ -1,16 +1,17 @@
 'use strict';
 
-//////////////// v0.0.0+
+//// v0.0.0+
 
 const cacheName = 'resources';
 const resources = [
-  '/', '404.html', '/offline.html',
-  '/manifest.json', '/icon-96.png', '/icon-120.png', '/icon-180.png', '/icon-192.png', '/icon-384.png', '/icon-512.png',
+  '/', '404.html', '/offline',
+  '/manifest.json',
+  '/images/icon-96.png', '/images/icon-120.png', '/images/icon-180.png',
+  '/images/icon-192.png', '/images/icon-384.png', '/images/icon-512.png',
   '/styles.css', '/app.js',
 ];
 
 self.addEventListener('install', async (e) => {
-console.log(resources);
   console.log("Installing Service Worker...");
   await caches.delete(cacheName);
   let cache = await caches.open(cacheName);
@@ -63,7 +64,7 @@ self.addEventListener('fetch', async (e) => {
         }
         return response;
       }).catch(err => {
-        return cache.match('/offline.html');
+        return cache.match('/offline');
       });
     }
   })());
