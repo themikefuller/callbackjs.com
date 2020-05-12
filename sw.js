@@ -2,13 +2,14 @@
 
 //// v0.0.0+
 
+importScripts('https://cdn.jsdelivr.net/npm/@starbase/starbase');
+
+const starbase = Starbase();
+
 const cacheName = 'resources';
 const resources = [
-  '/', '404.html', '/offline',
-  '/manifest.json',
-  '/images/icon-96.png', '/images/icon-120.png', '/images/icon-180.png',
-  '/images/icon-192.png', '/images/icon-384.png', '/images/icon-512.png',
-  '/styles.css', '/app.js',
+  '/', '404.html', '/offline', '/manifest.json', '/styles.css', '/app.js',
+  '/images/icon-96.png', '/images/icon-120.png', '/images/icon-192.png', '/images/icon-384.png', '/images/icon-512.png',
 ];
 
 self.addEventListener('install', async (e) => {
