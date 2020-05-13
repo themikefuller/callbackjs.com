@@ -6,9 +6,9 @@ importScripts('https://cdn.jsdelivr.net/npm/@starbase/starbase');
 
 const starbase = Starbase();
 
-const cacheName = 'app';
+const cacheName = 'test';
 const resources = [
-  '/', '/404.html', '/offline', '/manifest.json', '/styles.css', '/app.js', '/init.js',
+  '/', '/404.html', '/offline', '/test/manifest.json', '/styles.css', '/app.js', '/test/init.js',
   '/images/icon-96.png', '/images/icon-120.png', '/images/icon-192.png', '/images/icon-384.png', '/images/icon-512.png',
 ];
 

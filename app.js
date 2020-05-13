@@ -2,6 +2,19 @@
 
 const starbase = Starbase();
 
+const database = starbase.Database('app');
+const db = starbase.Channels(database);
+
+const serverURL = "https://us-central1-mike-project-9000.cloudfunctions.net/";
+const auth = starbase.Auth(starbase.Client(serverURL + "auth"), db);
+const admin = starbase.Admin(starbase.Client(serverURL + "admin"), auth);
+const profiles = starbase.Profiles(starbase.Client(serverURL + "profiles"), auth);
+
+const topics = starbase.Topics();
+auth.onStateChange(state=>{
+  topics.to('auth', state);
+});
+
 const showUpdateButton = () => {
   if (!document.getElementById('updateButton')) {
     let updateButton = document.createElement('button');
@@ -15,8 +28,6 @@ const showUpdateButton = () => {
     updateButton.onclick = (e) => {location.reload()};
   }
 };
-
-navigator.serviceWorker.register('/sw.js');
 
 navigator.serviceWorker.addEventListener('message', event => {
   if (event.data.msg && event.data.msg === 'refresh') {
