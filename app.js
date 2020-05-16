@@ -13,6 +13,7 @@ const serverURL = "https://us-central1-mike-project-9000.cloudfunctions.net/";
 const auth = starbase.Auth(starbase.Client(serverURL + "auth"), db);
 const admin = starbase.Admin(starbase.Client(serverURL + "admin"), auth);
 const profiles = starbase.Profiles(starbase.Client(serverURL + "profiles"), auth);
+const files = starbase.Files(serverURL + "files", auth);
 
 auth.onStateChange(state=>{
   topics.to('auth', state);
