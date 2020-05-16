@@ -2,6 +2,10 @@
 
 const starbase = Starbase();
 
+const cryptic = starbase.Cryptic();
+const encryption = starbase.Encryption(cryptic);
+const topics = starbase.Topics();
+
 const database = starbase.Database('app');
 const db = starbase.Channels(database);
 
@@ -10,7 +14,6 @@ const auth = starbase.Auth(starbase.Client(serverURL + "auth"), db);
 const admin = starbase.Admin(starbase.Client(serverURL + "admin"), auth);
 const profiles = starbase.Profiles(starbase.Client(serverURL + "profiles"), auth);
 
-const topics = starbase.Topics();
 auth.onStateChange(state=>{
   topics.to('auth', state);
 });

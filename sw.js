@@ -1,6 +1,6 @@
 'use strict';
 
-///////////// v0.0.0+
+////////////// v0.0.0+
 
 importScripts('https://cdn.jsdelivr.net/npm/@starbase/starbase');
 
