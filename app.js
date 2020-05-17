@@ -33,6 +33,8 @@ const showUpdateButton = () => {
   }
 };
 
+navigator.serviceWorker.register('/sw.js');
+
 navigator.serviceWorker.addEventListener('message', event => {
   if (event.data.msg && event.data.msg === 'refresh') {
     if (event.data && event.data.url && location.href === event.data.url) {
