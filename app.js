@@ -9,11 +9,11 @@ const topics = starbase.Topics();
 const database = starbase.Database('app');
 const db = starbase.Channels(database);
 
-const serverURL = "https://us-central1-mike-project-9000.cloudfunctions.net/callbackjs/";
-const auth = starbase.Auth(starbase.Client(serverURL + "auth"), db);
-const admin = starbase.Admin(starbase.Client(serverURL + "admin"), auth);
-const profiles = starbase.Profiles(starbase.Client(serverURL + "profiles"), auth);
-const files = starbase.Files(serverURL + "files", auth);
+const serverURL = "https://api.themike.org/callbackjs";
+const auth = starbase.Auth(starbase.Client(serverURL + "/auth"), db);
+const admin = starbase.Admin(starbase.Client(serverURL + "/admin"), auth);
+const profiles = starbase.Profiles(starbase.Client(serverURL + "/profiles"), auth);
+const files = starbase.Files(serverURL + "files/", auth);
 const online = async () => {
   return fetch(serverURL + "online", {"method":"POST"}).then(response=>{
     return response.json();
